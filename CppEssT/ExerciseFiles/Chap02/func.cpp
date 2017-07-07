@@ -1,17 +1,20 @@
 // func.cpp by Gabor
-// Defining a function
+// Passing values to a function
 #include <cstdio>
-#include "func.h"
+#include <string>
 using namespace std;
 
-int main(int argc, char **argv) 
+void func(const string & fs)
 {
-	puts("this is main()");
-	func();
-	return 0;
+	printf("value is %s\n", fs.c_str());
 }
 
-void func()
+int main(int argc, char **argv)
 {
-	puts("this is funct()");
+	string s = "Hello I'm a string";
+	puts("this is main()");
+	func(s);
+	printf("string is %s\n", s.c_str());
+
+	return 0;
 }
