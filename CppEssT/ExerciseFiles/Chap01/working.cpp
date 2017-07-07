@@ -1,14 +1,24 @@
 // working.cpp by Gabor
-// Iterating with for
+// Using the range based for loop
 #include <cstdio>
+#include <string>
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	char *s = "string";
+	/*int a[] = { 1, 2, 3, 4, 5 };
+	for (int i : a) {
+		printf("element %d\n", i);
+	}*/
 
-	for (char *cp = s; *cp; ++cp) {
-		printf("element %c\n",*cp);
+	/*char s[] = "string";
+	for (int c : s) {
+		if (c != 0) printf("element %c\n", c);
+	}*/
+
+	string s = "string";
+	for (int c : s) {
+		printf("element %c\n", c);
 	}
 
 	return 0;
