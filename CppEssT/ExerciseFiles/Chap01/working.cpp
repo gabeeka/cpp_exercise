@@ -2,10 +2,11 @@
 #include <cstdio>
 using namespace std;
 
-int main(int argc, char **argv) 
+int main(int argc, char **argv)
 {
-	int x;
-	x = 42;
-	printf("x is %d\n", x = 42 * (12 + 14));
+	int i = 7;
+	i = 47;
+	printf("The value is %d\n", i);
+
 	return 0;
 }
