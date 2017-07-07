@@ -1,25 +1,25 @@
 // working.cpp by Gabor
-// Arrays and strings
+// Conditionals
 #include <cstdio>
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	//char s[] = { 's', 't', 'r', 'i', 'n', 'g', 0 };
-	char s[] = "string";
-	// method 1
-	//for (char *cp = s; *cp; ++cp) {
-	//	printf("char is %c\n", *cp);
-	//}
+	int x = 42;
+	int y = 73;
 
-	// method 2
-	for (char c : s) {
-		if (c == 0) break;
-		printf("char is %c\n", c);
+	printf("the greater is: %d\n\n", x > y ? x : y);
+
+	if (x < y) {
+		puts("x < y");
+	}
+	else  if (x > y) {
+		puts("x > y");
+	}
+	else {
+		puts("they must be equal");
 	}
 
-	// method 3
-	// printf("String is: %s\n", s);
 
 	return 0;
 }
