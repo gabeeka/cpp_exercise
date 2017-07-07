@@ -1,25 +1,38 @@
 // working.cpp by Gabor
-// Conditionals
+// The branching conditional
 #include <cstdio>
 using namespace std;
 
 int main(int argc, char **argv)
 {
-	int x = 42;
-	int y = 73;
+	const int iONE = 1;
+	const int iTWO = 2;
+	const int iTWENTY = 20;
+	const int iTHREE = 3;
+	const int iFOUR = 4;
 
-	printf("the greater is: %d\n\n", x > y ? x : y);
+	int x = 20;
 
-	if (x < y) {
-		puts("x < y");
-	}
-	else  if (x > y) {
-		puts("x > y");
-	}
-	else {
-		puts("they must be equal");
-	}
+	switch (x)
+	{
+	case iONE:
+		puts("one");
+		break;
+	case iTWO:
+	case iTWENTY:
+		puts("two or twenty");
+		break;
+	case iTHREE:
+		puts("three");
+		break;
+	case iFOUR:
+		puts("four");
+		break;
 
+	default:
+		puts("default");
+		break;
+	}
 
 	return 0;
 }
