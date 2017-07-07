@@ -1,20 +1,19 @@
 // func.cpp by Gabor
-// Using automatic and static variables
+// Returning values from a function
 #include <cstdio>
+#include <string>
 using namespace std;
 
-void func()
+const string & func()
 {
-	static int i = 5;
-	printf("i is %d\n", ++i);
-	i = 42;
-	printf("i is %d\n", ++i);
+	static string s = "This is a static string";
+	puts("this is func()");
+	return s;
 }
 
 int main(int argc, char **argv)
 {
 	puts("this is main()");
-	func();
-	func();
+	printf("returned value is %s\n", func().c_str());
 	return 0;
 }
