@@ -1,22 +1,21 @@
 // working.cpp by Gabor
-// Macro caveats
+// Line continuation with backslash
 
 #include <cstdio>
 using namespace std;
 
-#define MAX(a, b) ( a > b ? a : b )
-
-int increment() {
-	static int i = 42;
-	i += 5;
-	printf("returning: %d\n", i);
-	return i;
-}
+#define SWAP(a, b)  	do {		\
+						a = a ^ b; \
+						b = b ^ a; \
+						a = a ^ b; \
+						} while (0)
 
 int main(int argc, char **argv)
 {
-	int x = 50;
-	printf("max of %d and %d is: %d\n", x, increment(), MAX(x, increment()));
-	printf("max of %d and %d is: %d\n", x, increment(), MAX(x, increment()));
+	int x = 5;
+	int y = 10;
+	printf("x is %d, y is %d\n", x, y);
+	SWAP(x, y);
+	printf("x is %d, y is %d\n", x, y);
 	return 0;
 }
