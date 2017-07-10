@@ -1,20 +1,37 @@
 // working.cpp by Gabor
-// Data members
+// Function members
 
 #include <cstdio>
 using namespace std;
 
 class A {
-public:
 	int ia;
-	int ib;
-	int ic;
+public:
+	void setvalue(const int a);
+	int getvalue() const;
+	int getvalue();
 };
+
+void A::setvalue(const int a) {
+	ia = a;
+}
+
+int A::getvalue() const {
+	puts("constant getter");
+	return ia;
+}
+
+int A::getvalue() {
+	puts("mutable getter");
+	return ia;
+}
 
 int main(int argc, char **argv)
 {
-	A a = { 1, 2, 3 };
-	A *pa = &a;
-	printf("ia is %d, ib is %d, ic is %d\n", pa->ia, pa->ib, pa->ic);
+	A a;
+	a.setvalue(42);
+	const A b = a;
+	printf("values is %d\n", a.getvalue());
+	printf("values is %d\n", b.getvalue());
 	return 0;
 }
