@@ -1,16 +1,14 @@
 // working.cpp by Gabor
-// Using macros as constants
+// Including files
 
 #include <cstdio>
+#include "preproc.h"
 using namespace std;
-
-#define ONE 1
-#define HELLO_STRING "Hello, World"
 
 int main(int argc, char **argv)
 {
-	const int one = 1;
-	printf("value is %d\n", one);
-	printf("the string is %s\n", HELLO_STRING);
+	printf("preprocessor macro: %d\n", ONE);
+	printf("integer constatnt: %d\n", _iOne);
+	printf("character string constant: %s\n", _sOne);
 	return 0;
 }
