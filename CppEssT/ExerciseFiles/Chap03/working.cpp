@@ -1,14 +1,16 @@
 // working.cpp by Gabor
-// Including files
+// Defining macros
 
 #include <cstdio>
-#include "preproc.h"
 using namespace std;
+
+#define MACRO(a, b) ( a * b )
+#define MAX(a, b) ( a > b ? a : b )
 
 int main(int argc, char **argv)
 {
-	printf("preprocessor macro: %d\n", ONE);
-	printf("integer constatnt: %d\n", _iOne);
-	printf("character string constant: %s\n", _sOne);
+	int ia = 5;
+	int ib = 7;
+	printf("value is %d\n", MAX(ia, ib));
 	return 0;
 }
