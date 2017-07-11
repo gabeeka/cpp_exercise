@@ -1,5 +1,5 @@
 // rational.cpp
-// Overloading operators with member functions
+// Overloading operators with nonmember functions
 
 #include <cstdio>
 #include <iostream>
@@ -15,7 +15,7 @@ public:
 	inline int numerator() const { return _n; };
 	inline int denominator() const { return _d; };
 	Rational & operator = (const Rational &);
-	Rational operator + (const Rational &) const;
+	//Rational operator + (const Rational &) const;
 	Rational operator - (const Rational &) const;
 	Rational operator * (const Rational &) const;
 	Rational operator / (const Rational &) const;
@@ -27,10 +27,6 @@ Rational & Rational::operator = (const Rational &rhs) {
 		_d = rhs.denominator();
 	}
 	return *this;
-}
-
-Rational Rational::operator + (const Rational &rhs) const {
-	return Rational((_n * rhs._d) + (_d * rhs._n), _d * rhs._d);
 }
 
 Rational Rational::operator - (const Rational &rhs) const {
@@ -46,8 +42,12 @@ Rational Rational::operator / (const Rational &rhs) const {
 }
 
 Rational::~Rational() {
-	printf("dtor: %d/%d\n", _n, _d);
 	_n = 0; _d = 1;
+}
+
+Rational operator + (const Rational &lhs, const Rational &rhs) {
+	return Rational((lhs.numerator() * rhs.denominator()) + (lhs.denominator() * rhs.numerator()),
+		lhs.denominator() * rhs.denominator());
 }
 
 // useful for std::cout
@@ -76,12 +76,7 @@ int main(int argc, char **argv)
 	cout << a << " * " << b << " = " << a * b << endl;
 	cout << a << " / " << b << " = " << a / b << endl;
 
-	d = c = b = a;
-
-	printf("a is %d/%d\n", a.numerator(), a.denominator());
-	printf("b is %d/%d\n", b.numerator(), b.denominator());
-	printf("c is %d/%d\n", c.numerator(), c.denominator());
-	printf("d is %d/%d\n", d.numerator(), d.denominator());
+	cout << 14 << " + " << a << " = " << 14 + a << endl;
 
 	return 0;
 }
